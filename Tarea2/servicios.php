@@ -58,9 +58,9 @@
                 <div class="collapse navbar-collapse" id="collapsibleNavbar">
                     <ul class="navbar-nav">
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="empresa.php" role="button" data-bs-toggle="dropdown">Empresa</a>
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Empresa</a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Quienes Somos</a></li>
+                                <li><a class="dropdown-item" href="empresa.php">Quienes Somos</a></li>
                                 <li><a class="dropdown-item" href="#">Nuestro Equipo</a></li>
                                 <li><a class="dropdown-item" href="#">Mision</a></li>
                             </ul>
