@@ -7,12 +7,36 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>        
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <style>
+            .bg-burdeo {
+                background-color: #57060c;
+                color:white;
+                line-height: 2;
+            }
+            .bg-lineas a {
+                color:white;
+            }
+            .btn-primary {
+                background-color: #d4a31c;
+                border-color: #d4a31c;
+            }
+            .bg-dorado {
+                background-color: #E3AB46;
+            }
+
+            .bg-dorado a {
+                color: white;
+            }
+            .container-fluid.bg-dark a {
+                color: white;
+        }
+        </style>
     </head>
     <body>
         <!-- Navbar -->
-        <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+        <nav class="navbar navbar-expand-sm bg-burdeo navbar-dark">
             <div class="container-fluid"> 
-                <a class="navbar-brand" href="index.php"><i class="fa fa-car"></i></a>
+                <a class="navbar-brand" href="index.php"><img src="img/wonka.png" width="55"></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -41,17 +65,17 @@
             </div>
         </nav>       
         <!-- Container -->
-        <div class="container-fluid bg-warning">
+        <div class="container-fluid bg-dark">
             <a href="empresa.php">Ir a Empresa</a><br>
             <a href="productos.php">Ir a Productos</a><br>
             <a href="servicios.php">Ir a Servicios</a><br>
             <a href="contacto.php">Ir a Contacto</a><br>
         </div>
         <!-- Footer -->   
-        <div class="container-fluid bg-dark">
+        <div class="container-fluid bg-burdeo" >
             <div class="row">
                 <div class="col-4"></div>
-                <div class="col-4" style="color:white"><strong>MiEmpresa@2026</strong></div>
+                <div class="col-4 text-center" style="color:#E3AB46"><strong>MiEmpresa@2026</strong></div>
                 <div class="col-4"></div>
             </div>
         </div>
