@@ -75,7 +75,7 @@
         <div class="container-fluid bg-burdeo" >
             <div class="row">
                 <div class="col-4"></div>
-                <div class="col-4 text-center" style="color:#E3AB46"><strong>MiEmpresa@2026</strong></div>
+                <div class="col-4 text-center" style="color:#E3AB46"><strong>ChocoSneaky@gmail.com</strong></div>
                 <div class="col-4"></div>
             </div>
         </div>
