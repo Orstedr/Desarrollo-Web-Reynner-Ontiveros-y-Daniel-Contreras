@@ -29,7 +29,18 @@
             }
             .container-fluid.bg-dark a {
                 color: white;
-        }
+            }
+            .bg-dark {
+            background-color: #000000 !important;
+            }
+            .modal-content {
+            background-color: #57060c;
+            color: white;
+            }
+            .container-index {
+            padding-bottom: 10px;
+            padding-top: 4px;
+            }
         </style>
     </head>
     <body>
@@ -65,7 +76,7 @@
             </div>
         </nav>       
         <!-- Container -->
-        <div class="container-fluid bg-dark">
+        <div class="container-fluid bg-dark container-index">
             <a href="empresa.php">Ir a Empresa</a><br>
             <a href="productos.php">Ir a Productos</a><br>
             <a href="servicios.php">Ir a Servicios</a><br>
@@ -92,24 +103,24 @@
                     <div class="modal-body">
                         <form action="empresa.php">
                         <div class="mb-3 mt-3">
-                            <label for="email" class="form-label">Email:</label>
-                            <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
+                            <label for="email" class="form-label">Correo:</label>
+                            <input type="email" class="form-control" id="email" placeholder="Ingresar correo" name="email">
                         </div>
                         <div class="mb-3">
-                            <label for="pwd" class="form-label">Password:</label>
-                            <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pswd">
+                            <label for="pwd" class="form-label">Contraseña:</label>
+                            <input type="password" class="form-control" id="pwd" placeholder="Ingresar contraseña" name="pswd">
                         </div>
                         <div class="form-check mb-3">
                             <label class="form-check-label">
-                            <input class="form-check-input" type="checkbox" name="remember"> Remember me
+                            <input class="form-check-input" type="checkbox" name="remember"> Recuerdame
                             </label>
                         </div>
-                        <button type="submit" class="btn btn-primary">Login</button>
+                        <button type="submit" class="btn btn-primary">Iniciar sesión</button>
                         </form>
                     </div>
                     <!-- Modal footer -->
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
                     </div>
                 </div>
             </div>

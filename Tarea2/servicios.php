@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
     <head>
-        <title>Productos</title>
+        <title>Primera pagina</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -9,28 +9,43 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <style>
             .bg-burdeo {
-                background-color: #57060c;
-                color:white;
-                line-height: 2;
-            }
-            .bg-lineas a {
-                color:white;
-            }
-            .btn-primary {
-                background-color: #d4a31c;
-                border-color: #d4a31c;
-            }
-            .bg-dorado {
-                background-color: #E3AB46;
+            background-color: #57060c;
+            color: white;
+            line-height: 2;
             }
 
-            .bg-dorado a {
-                color: white;
+            .container-servicios {
+            background-color: #000000;
+            color: white;
             }
-            .container-fluid.bg-dark a {
-                color: white;
-        }
-        </style>
+
+            .container-servicios a {
+            color: white;
+            }
+            .texto-servicios {
+            font-size: 14px;
+            }
+            .container-servicios {
+            background-color: #000000;
+            color: white;
+            padding-top:5px;
+            
+            
+            }
+            .tarjeta-servicio {
+            background-color: #57060c;
+            color: white;
+            border: 2px solid #E3AB46;
+            padding: 20px;
+            text-align: center;
+            height: 100%;
+            
+            }
+
+            .tarjeta-servicio h3 {
+            color: #E3AB46;
+            }
+</style>
     </head>
     <body>
         <!-- Navbar -->
@@ -58,60 +73,59 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="contacto.php">Contacto</a>
-                        </li>                                                 
+                        </li>  
                     </ul>
-                </div>  
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">Acceder</button>               
+                </div>                
             </div>
-        </nav>
+        </nav>       
         <!-- Container -->
-        <div class="container-fluid bg-warning">
-            Hola Servicios<br>
-            <a href="index.php">Volver</a>
+        <div class="container-fluid container-servicios">
+    
+    <p style="padding-top: 5px;">
+        En ChocoSneaky creemos que siempre hay un buen momento para disfrutar de un chocolate.
+        Descubre nuestra variedad de sabores y productos, creados para compartir, disfrutar y hacerte feliz.
+    </p>
+
+    <div class="row mt-4">
+
+        <div class="col-md-4 mb-3">
+            <div class="tarjeta-servicio">
+                <h3>🍫 Variedad</h3>
+                <p>
+                    Disfruta de una gran variedad de chocolates y sabores
+                    pensados para todos los gustos.
+                </p>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-3">
+            <div class="tarjeta-servicio">
+                <h3>🎁 Regalos</h3>
+                <p>
+                    Encuentra el regalo perfecto para cumpleaños,
+                    celebraciones y ocasiones especiales.
+                </p>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-3">
+            <div class="tarjeta-servicio">
+                <h3>❤️ Felicidad</h3>
+                <p>
+                    Creamos nuestros productos pensando en entregar
+                    momentos dulces y hacer feliz a cada cliente.
+                    
+                </p>
+            </div>
         </div>
         <!-- Footer -->   
-        <!-- Footer -->   
-        <div class="container-fluid bg-burdeo" >
+        <div class="container-fluid bg-burdeo">
             <div class="row">
                 <div class="col-4"></div>
-                <div class="col-4 text-center" style="color:#E3AB46"><strong>ChocoSneaky@gmail.com</strong></div>
+                <div class="col-4 text-center" style="color:#E3AB46"><strong>ChocoSneaky@2026</strong></div>
                 <div class="col-4"></div>
             </div>
         </div>
-        <!-- Modal -->
-         <div class="modal fade" id="myModal">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <!-- Modal Header -->
-                    <div class="modal-header">
-                        <h4 class="modal-title">Autenticación</h4>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                    </div>
-                    <!-- Modal body -->
-                    <div class="modal-body">
-                        <form action="empresa.php">
-                        <div class="mb-3 mt-3">
-                            <label for="email" class="form-label">Email:</label>
-                            <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
-                        </div>
-                        <div class="mb-3">
-                            <label for="pwd" class="form-label">Password:</label>
-                            <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pswd">
-                        </div>
-                        <div class="form-check mb-3">
-                            <label class="form-check-label">
-                            <input class="form-check-input" type="checkbox" name="remember"> Remember me
-                            </label>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Login</button>
-                        </form>
-                    </div>
-                    <!-- Modal footer -->
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-                    </div>
-                </div>
-            </div>
-        </div>    
+        <!-- Modal -->     
     </body>
 </html>
