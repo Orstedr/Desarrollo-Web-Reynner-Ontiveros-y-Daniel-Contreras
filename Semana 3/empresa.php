@@ -7,6 +7,7 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>        
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="js/carrito.js" defer></script>
         <style>
             .bg-burdeo {
                 background-color: #57060c;
@@ -129,23 +130,23 @@
                         <form action="empresa.php">
                         <div class="mb-3 mt-3">
                             <label for="email" class="form-label">Email:</label>
-                            <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
+                            <input type="email" class="form-control" id="email" placeholder="Ingrese email" name="email">
                         </div>
                         <div class="mb-3">
-                            <label for="pwd" class="form-label">Password:</label>
-                            <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pswd">
+                            <label for="pwd" class="form-label">Contraseña:</label>
+                            <input type="password" class="form-control" id="pwd" placeholder="Ingrese contraseña" name="pswd">
                         </div>
                         <div class="form-check mb-3">
                             <label class="form-check-label">
-                            <input class="form-check-input" type="checkbox" name="remember"> Remember me
+                            <input class="form-check-input" type="checkbox" name="remember"> Recuerdame
                             </label>
                         </div>
-                        <button type="submit" class="btn btn-primary">Login</button>
+                        <button type="button" class="btn btn-primary" onclick="validarLogin();">Iniciar sesión</button>
                         </form>
                     </div>
                     <!-- Modal footer -->
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
                     </div>
                 </div>
             </div>
