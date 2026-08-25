@@ -7,6 +7,7 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>        
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="js/carrito.js" defer></script>
         <style>
             .bg-burdeo {
                 background-color: #57060c;
@@ -41,6 +42,26 @@
             padding-bottom: 10px;
             padding-top: 4px;
             }
+            #listaCarrito {
+                right: 0;
+                left: auto;
+                max-width: calc(100vw - 24px);
+                width: 280px;
+                word-break: break-word;
+            }
+            .carrito-item {
+                flex-wrap: wrap;
+                gap: 6px;
+            }
+            @media (max-width: 420px) {
+                #listaCarrito {
+                    position: fixed !important;
+                    top: 60px;
+                    left: 12px;
+                    right: 12px;
+                    width: auto;
+                }
+            }
         </style>
     </head>
     <body>
@@ -71,7 +92,13 @@
                             <a class="nav-link" href="contacto.php">Contacto</a>
                         </li>                                                 
                     </ul>
-                </div>  
+                </div>
+                <div class="position-relative me-3">
+                    <span class="text-white" style="cursor:pointer;" onclick="toggleCarrito();">
+                        <i class="fa fa-shopping-cart"></i> <span id="carritoContador">0</span>
+                    </span>
+                    <div id="listaCarrito" class="dropdown-menu dropdown-menu-end p-3" style="display:none;"></div>
+                </div>
                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">Acceder</button>               
             </div>
         </nav>       
@@ -115,7 +142,7 @@
                             <input class="form-check-input" type="checkbox" name="remember"> Recuerdame
                             </label>
                         </div>
-                        <button type="submit" class="btn btn-primary">Iniciar sesión</button>
+                        <button type="button" class="btn btn-primary" onclick="validarLogin();">Iniciar sesión</button>
                         </form>
                     </div>
                     <!-- Modal footer -->
