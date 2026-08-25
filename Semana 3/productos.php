@@ -7,6 +7,8 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>        
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="js/carrito.js" defer></script>
+        <script src="js/productos.js" defer></script>
         <style>
             .bg-burdeo {
                 background-color: #57060c;
@@ -30,6 +32,26 @@
             .container-fluid.bg-dark a {
                 color: white;
         }
+            #listaCarrito {
+                right: 0;
+                left: auto;
+                max-width: calc(100vw - 24px);
+                width: 280px;
+                word-break: break-word;
+            }
+            .carrito-item {
+                flex-wrap: wrap;
+                gap: 6px;
+            }
+            @media (max-width: 420px) {
+                #listaCarrito {
+                    position: fixed !important;
+                    top: 60px;
+                    left: 12px;
+                    right: 12px;
+                    width: auto;
+                }
+            }
         </style>
     </head>
     <body>
@@ -60,60 +82,22 @@
                             <a class="nav-link" href="contacto.php">Contacto</a>
                         </li>                                                 
                     </ul>
-                </div>  
+                </div> 
+                <div class="position-relative me-3">
+                    <span class="text-white" style="cursor:pointer;" onclick="toggleCarrito();">
+                        <i class="fa fa-shopping-cart"></i> <span id="carritoContador">0</span>
+                    </span>
+                    <div id="listaCarrito" class="dropdown-menu dropdown-menu-end p-3" style="display:none;"></div>
+                </div>
                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">Acceder</button>               
-            </div>
+            </div> 
         </nav>
         <!-- Container -->
         <div class="container bg-warning">
            
             <div class="container-fluid">
-                <div class="row g-4">
-                    <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-                        <div class="card h-100">
-                            <img class="card-img-top" src="img/beastables.jpg" alt="Chocolate Beastables">
-                            <div class="card-body d-flex flex-column">
-                                <h4 class="card-title">CHOCOLATE DE LECHE BEASTABLES</h4>
-                                <p class="card-text">Rico chocolate de leche creado con leche sin lactosa directamente de vacas felices</p>
-                                <h5 class="text-success">$10.000</h5>
-                                <a href="comprar.php?id=1" class="btn btn-primary mt-auto">Añadir al carrito</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-                        <div class="card h-100">
-                            <img class="card-img-top" src="img/ChocolateWilly.jpg" alt="Chocolate Wonka">
-                            <div class="card-body d-flex flex-column">
-                                <h4 class="card-title">CHOCOLATE NEGRO WILLY WONKA</h4>
-                                <p class="card-text">Exquisito chocolate que hará explotar tu mente a la segunda mordida</p>
-                                <h5 class="text-success">$5.000</h5>
-                                <a href="comprar.php?id=1" class="btn btn-primary mt-auto">Añadir al carrito</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-                        <div class="card h-100">
-                            <img class="card-img-top" src="img/Milka Chocolate.png" alt="Milka de Brownie">
-                            <div class="card-body d-flex flex-column">
-                                <h4 class="card-title">CHOCOLATE DE BROWNIE MILKA</h4>
-                                <p class="card-text">Sabroso chocolate de brownie con toques de sal y leche sin lactosa</p>
-                                <h5 class="text-success">$15.000</h5>
-                                <a href="comprar.php?id=1" class="btn btn-primary mt-auto">Añadir al carrito</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-                        <div class="card h-100">
-                            <img class="card-img-top" src="img/Sahne nuss.png" alt="Sahne nuss">
-                            <div class="card-body d-flex flex-column">
-                                <h4 class="card-title">CHOCOLATE DE ALMENDRAS SAHNE NUSS</h4>
-                                <p class="card-text">Delicioso chocolate de almendras sahne nuss traidas directamente de la india</p>
-                                <h5 class="text-success">$30.000</h5>
-                                <a href="comprar.php?id=1" class="btn btn-primary mt-auto">Añadir al carrito</a>
-                            </div>
-                        </div>
-                    </div>                                                                                                                                                                                   
-                </div>
+                <!-- Este contenedor se llena dinámicamente vía JS (onload) -->
+                <div class="row g-4" id="contenedorProductos"></div>
             </div>
         </div>
         <!-- Footer -->   
@@ -138,23 +122,23 @@
                         <form action="empresa.php">
                         <div class="mb-3 mt-3">
                             <label for="email" class="form-label">Email:</label>
-                            <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
+                            <input type="email" class="form-control" id="email" placeholder="Ingresar correo" name="email">
                         </div>
                         <div class="mb-3">
-                            <label for="pwd" class="form-label">Password:</label>
-                            <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pswd">
+                            <label for="pwd" class="form-label">Contraseña:</label>
+                            <input type="password" class="form-control" id="pwd" placeholder="Ingresar contraseña" name="pswd">
                         </div>
                         <div class="form-check mb-3">
                             <label class="form-check-label">
-                            <input class="form-check-input" type="checkbox" name="remember"> Remember me
+                            <input class="form-check-input" type="checkbox" name="remember"> Recuerdame
                             </label>
                         </div>
-                        <button type="submit" class="btn btn-primary">Login</button>
+                        <button type="button" class="btn btn-primary" onclick="validarLogin();">Iniciar sesión</button>
                         </form>
                     </div>
                     <!-- Modal footer -->
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
                     </div>
                 </div>
             </div>
