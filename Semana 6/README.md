@@ -30,6 +30,30 @@ Abrir:
 ## Estructura del proyecto
 - `database.py`: conexión a MongoDB y ciclo de vida de la app.
 - `models.py`: modelos Pydantic de `Item`.
-- `main.py`: instancia de FastAPI y endpoint `/health`.
+- `routers/items.py`: endpoints CRUD de `items`.
+- `main.py`: instancia de FastAPI y registro de rutas.
 
-> Los endpoints de `items` (CRUD) se agregan en un PR posterior.
+## Endpoints
+- GET `/health`
+- GET `/items`
+- POST `/items`
+- GET `/items/{item_id}`
+- PUT `/items/{item_id}`
+- DELETE `/items/{item_id}`
+
+`GET /items` admite `q`, `skip` y `limit`.
+
+## Ejemplo de POST
+```json
+{
+  "nombre": "Teclado",
+  "precio": 19990,
+  "tags": ["computacion", "perifericos"],
+  "activo": true
+}
+```
+
+## Errores
+- 400: ID inválido.
+- 404: item no encontrado.
+- 422: datos que no cumplen las validaciones.
