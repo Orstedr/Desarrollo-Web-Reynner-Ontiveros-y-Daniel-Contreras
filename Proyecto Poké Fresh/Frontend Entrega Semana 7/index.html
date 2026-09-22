@@ -463,9 +463,10 @@
     Panel admin →
   </a>
 
-  <!-- data.js y app-core.js son la base: deben cargarse en este orden.
-       app-main.js (funcionalidades) se agrega en el siguiente PR. -->
+  <!-- Orden obligatorio: data.js y app-core.js son la base (PR 1);
+       app-main.js (funcionalidades) depende de ambos y va al final. -->
   <script src="data.js"></script>
   <script src="app-core.js"></script>
+  <script src="app-main.js"></script>
 </body>
 </html>
