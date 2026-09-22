@@ -1,13 +1,3 @@
-// =====================================================================
-// app-main.js — Funcionalidades de la SPA "Poké Fresh" (PR 2)
-//
-// IMPORTANTE: este archivo DEPENDE de app-core.js (PR 1) y debe cargarse
-// después de él en el HTML. Usa directamente STATE, LS_KEYS, formatCLP,
-// validarEmail, validarRUN, formatearRUN, guardarEnStorage, leerDeStorage,
-// buscarPorId, abrirModal, cerrarModal y mostrarToast, todos definidos en
-// app-core.js. Sin ese archivo cargado antes, esto lanza ReferenceError.
-// =====================================================================
-
 /**
  * Genera un número de boleta correlativo simulado.
  */
