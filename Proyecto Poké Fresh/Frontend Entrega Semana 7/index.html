@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Poké Fresh — Tu bowl hawaiano, armado a tu manera</title>
+  <meta name="description" content="Poké Fresh: bowls hawaianos personalizados. Arma tu bowl, paga en línea y recíbelo fresco en Puente Alto." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- =====================================================
+       VISTA HOME (público)
+  ====================================================== -->
+  <div id="vista-home">
+
+    <!-- ===================== HEADER / NAVBAR ===================== -->
+    <header class="header">
+      <div class="header__contenedor">
+        <a href="#inicio" class="logo">POKE FRESH</a>
+
+        <nav class="nav" id="nav-principal" aria-label="Navegación principal">
+          <ul class="nav__lista">
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#como-funciona">Cómo funciona</a></li>
+            <li><a href="#configurador">Arma tu bowl</a></li>
+            <li><a href="#menu">Menú</a></li>
+            <li><a href="#" id="btn-cuenta-nav" data-abrir-modal="modal-auth">Mi cuenta</a></li>
+          </ul>
+        </nav>
+
+        <div class="header__acciones">
+          <button type="button" id="btn-cuenta" class="btn btn--secondary btn--small">Mi cuenta</button>
+          <button type="button" class="btn-carrito" data-abrir-modal="modal-carrito" aria-label="Ver carrito">
+            🛒
+            <span id="contador-carrito" class="badge-contador oculto">0</span>
+          </button>
+          <button type="button" id="btn-hamburguesa" class="hamburguesa" aria-label="Abrir menú">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <!-- ===================== HERO ===================== -->
+      <section class="hero" id="inicio">
+        <div class="contenedor hero__contenedor">
+          <div class="hero__texto">
+            <span class="hero__badge">Delivery propio · Radio gratuito de 3 km</span>
+            <h1 class="hero__titulo">Tu bowl hawaiano, armado a tu manera</h1>
+            <p class="hero__subtitulo">
+              Elige tu base, proteína, toppings y salsa. Nosotros preparamos tu poké bowl
+              fresco y lo llevamos directo a tu puerta en Puente Alto.
+            </p>
+            <div class="hero__cta">
+              <a href="#configurador" class="btn btn--primary">Arma tu bowl</a>
+              <a href="#menu" class="btn btn--secondary">Ver menú</a>
+            </div>
+            <ul class="hero__lista">
+              <li>Ingredientes del día</li>
+              <li>Boleta digital al correo</li>
+              <li>Pago por Webpay o depósito</li>
+            </ul>
+          </div>
+          <div class="hero__imagen" aria-hidden="true">🥗</div>
+        </div>
+      </section>
+
+      <!-- ===================== CÓMO FUNCIONA ===================== -->
+      <section class="seccion" id="como-funciona">
+        <div class="contenedor">
+          <h2 class="seccion__titulo">Cómo funciona tu pedido</h2>
+          <ol class="pasos">
+            <li class="paso">
+              <span class="paso__numero">1</span>
+              <h3>Arma tu bowl</h3>
+              <p class="texto-muted">Elige base, proteína, toppings y salsa a tu gusto.</p>
+            </li>
+            <li class="paso">
+              <span class="paso__numero">2</span>
+              <h3>Inicia sesión</h3>
+              <p class="texto-muted">Regístrate o entra a tu cuenta para continuar.</p>
+            </li>
+            <li class="paso">
+              <span class="paso__numero">3</span>
+              <h3>Paga en línea</h3>
+              <p class="texto-muted">Webpay o depósito bancario, como prefieras.</p>
+            </li>
+            <li class="paso">
+              <span class="paso__numero">4</span>
+              <h3>Recíbelo fresco</h3>
+              <p class="texto-muted">Delivery propio, gratis dentro de 3 km.</p>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- ===================== CONFIGURADOR "ARMA TU BOWL" ===================== -->
+      <section class="seccion" id="configurador">
+        <div class="contenedor">
+          <h2 class="seccion__titulo">Arma tu bowl</h2>
+          <div class="configurador">
+            <div class="configurador__opciones">
+              <div class="configurador__grupo">
+                <h3>Base <span class="texto-muted">(elige una)</span></h3>
+                <div class="opciones-grid" id="opciones-base"></div>
+              </div>
+              <div class="configurador__grupo">
+                <h3>Proteína <span class="texto-muted">(elige una)</span></h3>
+                <div class="opciones-grid" id="opciones-proteina"></div>
+              </div>
+              <div class="configurador__grupo">
+                <h3>Toppings <span class="texto-muted">(elige los que quieras)</span></h3>
+                <div class="opciones-grid" id="opciones-toppings"></div>
+              </div>
+              <div class="configurador__grupo">
+                <h3>Salsa <span class="texto-muted">(elige una)</span></h3>
+                <div class="opciones-grid" id="opciones-salsa"></div>
+              </div>
+            </div>
+
+            <aside class="resumen-bowl">
+              <h3>Tu bowl</h3>
+              <div id="resumen-bowl-lineas"></div>
+              <div class="resumen-bowl__total">
+                <span>Total</span>
+                <span id="resumen-bowl-total">$0</span>
+              </div>
+              <button type="button" id="btn-agregar-bowl" class="btn btn--primary btn--full" disabled>
+                Agregar al pedido
+              </button>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================== MENÚ Y PROMOCIONES ===================== -->
+      <section class="seccion" id="menu">
+        <div class="contenedor">
+          <h2 class="seccion__titulo">Menú</h2>
+
+          <div class="menu-layout">
+            <aside class="menu-filtros">
+              <h3>Filtros</h3>
+              <div class="filtros-menu">
+                <label class="filtro-checkbox">
+                  <input type="checkbox" data-filtro-menu="todos" checked />
+                  Todos
+                </label>
+                <label class="filtro-checkbox">
+                  <input type="checkbox" data-filtro-menu="clasicos" />
+                  Clásicos
+                </label>
+                <label class="filtro-checkbox">
+                  <input type="checkbox" data-filtro-menu="proteicos" />
+                  Proteicos
+                </label>
+                <label class="filtro-checkbox">
+                  <input type="checkbox" data-filtro-menu="veggie" />
+                  Veggie
+                </label>
+              </div>
+            </aside>
+
+            <div class="menu-contenido">
+              <div class="grid-cards" id="grid-menu"></div>
+
+              <div class="banner-personaliza">
+                <h3>Arma el tuyo desde cero</h3>
+                <a href="#configurador" class="btn btn--secondary" class="banner-personaliza__cta">→</a>
+              </div>
+            </div>
+          </div>
+
+          <h3 class="seccion__titulo seccion__titulo--sm">Lo especial del día</h3>
+          <div class="grid-especiales" id="grid-especiales"></div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ===================== FOOTER ===================== -->
+    <footer class="footer">
+      <div class="contenedor footer__contenedor">
+        <div>
+          <p class="footer__logo">POKE FRESH</p>
+          <p class="footer__tagline">Bowls hawaianos, a tu manera.</p>
+        </div>
+        <div class="footer__datos">
+          <span>📞 Contacto: 992932992329392967</span>
+          <span>📍 Dirección: Puente Alto</span>
+          <span>🕐 Horario: De 8:00 a 21:00</span>
+        </div>
+        <div class="footer__redes" aria-label="Redes sociales">
+          <a href="#" aria-label="Instagram">📷</a>
+          <a href="#" aria-label="Facebook">📘</a>
+          <a href="#" aria-label="WhatsApp">💬</a>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- =====================================================
+       VISTA ADMIN — "POKE ADMIN" (#/admin)
+       Solo maquetación en esta entrega, sin autenticación real.
+  ====================================================== -->
+  <div id="vista-admin" class="admin-shell oculto">
+    <div class="admin-topbar">
+      <span class="admin-topbar__titulo">🥢 POKE ADMIN</span>
+      <a href="#/" class="btn btn--small btn--secondary">Salir</a>
+    </div>
+    <nav class="admin-nav">
+      <button type="button" class="admin-tab admin-tab--activa" data-admin-tab="dashboard">Dashboard</button>
+      <button type="button" class="admin-tab" data-admin-tab="productos">Productos</button>
+      <button type="button" class="admin-tab" data-admin-tab="clientes">Clientes</button>
+      <button type="button" class="admin-tab" data-admin-tab="reporte">Reporte Ventas</button>
+      <button type="button" class="admin-tab" data-admin-tab="despacho">Despacho</button>
+    </nav>
+
+    <div class="admin-contenido contenedor">
+      <section id="admin-dashboard" class="admin-seccion">
+        <h2>Dashboard</h2>
+        <div class="admin-dashboard-stats" id="admin-dashboard-stats"></div>
+      </section>
+
+      <section id="admin-productos" class="admin-seccion oculto">
+        <h2>Productos</h2>
+        <div id="admin-tabla-productos"></div>
+      </section>
+
+      <section id="admin-clientes" class="admin-seccion oculto">
+        <h2>Clientes</h2>
+        <div id="admin-tabla-clientes"></div>
+      </section>
+
+      <section id="admin-reporte" class="admin-seccion oculto">
+        <h2>Reporte de ventas</h2>
+        <div id="admin-reporte-ventas"></div>
+        <button type="button" id="btn-exportar-pdf" class="btn btn--primary">Exportar como PDF</button>
+      </section>
+
+      <section id="admin-despacho" class="admin-seccion oculto">
+        <h2>Despacho</h2>
+        <div id="admin-tabla-despacho"></div>
+      </section>
+    </div>
+  </div>
+
+  <!-- =====================================================
+       MODAL: AUTENTICACIÓN (Login / Registro) — RF5 y RF6
+  ====================================================== -->
+  <div id="modal-auth" class="modal-fondo oculto">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="titulo-auth">
+      <button type="button" class="modal__cerrar" data-cerrar-modal="modal-auth" aria-label="Cerrar">✕</button>
+      <h2 id="titulo-auth">Mi cuenta</h2>
+
+      <div class="tabs-auth">
+        <button type="button" class="tab tab--activa" data-tab-auth="login">Iniciar sesión</button>
+        <button type="button" class="tab" data-tab-auth="registro">Registrarme</button>
+      </div>
+
+      <!-- ----- Login ----- -->
+      <form id="form-login" class="panel-auth" novalidate>
+        <div class="campo">
+          <label for="login-email">Correo electrónico</label>
+          <input type="email" id="login-email" required />
+        </div>
+        <div class="campo">
+          <label for="login-password">Contraseña</label>
+          <input type="password" id="login-password" required />
+        </div>
+        <a href="#" class="auth-enlace" id="link-olvide-password">¿Olvidaste tu contraseña?</a>
+        <p id="login-error" class="mensaje-error oculto"></p>
+        <button type="submit" class="btn btn--primary btn--full">Entrar</button>
+        <p class="auth-enlace-cambio">
+          ¿No tienes cuenta? <a href="#" data-ir-a-tab-auth="registro">Regístrate</a>
+        </p>
+      </form>
+
+      <!-- ----- Registro ----- -->
+      <form id="form-registro" class="panel-auth oculto" novalidate>
+        <div class="fila-campos fila-campos--2">
+          <div class="campo">
+            <label for="registro-run">RUN</label>
+            <input type="text" id="registro-run" placeholder="12.345.678-9" required />
+          </div>
+          <div class="campo">
+            <label for="registro-fecha-nacimiento">Fecha de nacimiento</label>
+            <input type="date" id="registro-fecha-nacimiento" required />
+          </div>
+        </div>
+        <div class="campo">
+          <label for="registro-nombre">Nombre completo</label>
+          <input type="text" id="registro-nombre" required />
+        </div>
+        <div class="campo">
+          <label for="registro-direccion">Dirección</label>
+          <input type="text" id="registro-direccion" required />
+        </div>
+        <div class="fila-campos fila-campos--3">
+          <div class="campo">
+            <label for="registro-comuna">Comuna</label>
+            <input type="text" id="registro-comuna" required />
+          </div>
+          <div class="campo">
+            <label for="registro-provincia">Provincia</label>
+            <input type="text" id="registro-provincia" required />
+          </div>
+          <div class="campo">
+            <label for="registro-region">Región</label>
+            <input type="text" id="registro-region" required />
+          </div>
+        </div>
+        <div class="fila-campos fila-campos--2">
+          <div class="campo">
+            <label for="registro-email">Correo electrónico</label>
+            <input type="email" id="registro-email" required />
+          </div>
+          <div class="campo">
+            <label for="registro-telefono">Teléfono</label>
+            <input type="tel" id="registro-telefono" placeholder="+56 9 1234 5678" required />
+          </div>
+        </div>
+        <div class="campo">
+          <label>Sexo</label>
+          <div class="pills-sexo">
+            <label class="pill-sexo">
+              <input type="radio" name="sexo" value="masculino" />
+              Masculino
+            </label>
+            <label class="pill-sexo">
+              <input type="radio" name="sexo" value="femenino" />
+              Femenino
+            </label>
+            <label class="pill-sexo">
+              <input type="radio" name="sexo" value="otro" />
+              Otro
+            </label>
+          </div>
+        </div>
+        <div class="campo">
+          <label for="registro-password">Contraseña</label>
+          <input type="password" id="registro-password" required minlength="6" />
+        </div>
+        <p id="registro-error" class="mensaje-error oculto"></p>
+        <button type="submit" class="btn btn--primary btn--full">Crear cuenta</button>
+        <p class="auth-enlace-cambio">
+          ¿Ya tienes cuenta? <a href="#" data-ir-a-tab-auth="login">Inicia sesión</a>
+        </p>
+      </form>
+    </div>
+  </div>
+
+  <!-- =====================================================
+       MODAL: CARRITO / CHECKOUT
+  ====================================================== -->
+  <div id="modal-carrito" class="modal-fondo oculto">
+    <div class="modal modal--ancho" role="dialog" aria-modal="true" aria-labelledby="titulo-carrito">
+      <button type="button" class="modal__cerrar" data-cerrar-modal="modal-carrito" aria-label="Cerrar">✕</button>
+      <h2 id="titulo-carrito">Confirmar compra</h2>
+
+      <div class="carrito-layout">
+        <!-- ----- Columna izquierda: productos del pedido ----- -->
+        <div class="carrito-col carrito-col--izquierda">
+          <p id="carrito-vacio" class="texto-muted oculto">Aún no has agregado nada a tu pedido.</p>
+          <ul id="lista-carrito" class="lista-carrito"></ul>
+
+          <button type="button" id="btn-agregar-otro-producto" class="btn btn--secondary btn--full">
+            Agregar otro producto +
+          </button>
+
+          <div class="sugerencias-carrito">
+            <button type="button" class="sugerencias-flecha" id="sugerencias-anterior" aria-label="Ver sugerencia anterior">←</button>
+            <div class="sugerencias-contenido">
+              <span class="sugerencias-titulo">SUGERENCIAS</span>
+              <div id="sugerencias-lista" class="sugerencias-lista"></div>
+            </div>
+            <button type="button" class="sugerencias-flecha" id="sugerencias-siguiente" aria-label="Ver siguiente sugerencia">→</button>
+          </div>
+        </div>
+
+        <!-- ----- Columna derecha: entrega, pago y total ----- -->
+        <div class="carrito-col carrito-col--derecha">
+          <div class="campo">
+            <label for="carrito-direccion">Dirección de entrega</label>
+            <input type="text" id="carrito-direccion" placeholder="Ingresa tu dirección" />
+          </div>
+
+          <div class="caja-info" id="caja-radio-despacho">Radio de despacho: 3km</div>
+
+          <fieldset class="metodo-pago-caja">
+            <legend>Medio de pago</legend>
+            <label>
+              <input type="radio" name="metodo-pago" value="webpay" />
+              Webpay
+            </label>
+            <label>
+              <input type="radio" name="metodo-pago" value="transferencia" />
+              Transferencia
+            </label>
+          </fieldset>
+
+          <div class="carrito-resumen-total">
+            <span>Total</span>
+            <span id="carrito-total">$0</span>
+          </div>
+
+          <div class="acciones-carrito">
+            <button type="button" id="btn-confirmar-pago" class="btn btn--primary btn--full">
+              Confirmar pedido
+            </button>
+            <button type="button" id="btn-anular-carrito" class="btn btn--secondary btn--full">
+              Anular carrito
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ----- Módulo de Anulación de Pedido (CU7) -----
+           Distinto de "Anular carrito": aquí se anula un pedido YA
+           confirmado/pagado, y por eso exige un motivo obligatorio. -->
+      <div class="seccion-anulacion">
+        <h3 class="anulacion__titulo">Anular un pedido ya confirmado</h3>
+        <p class="texto-muted anulacion__descripcion">
+          Si ya pagaste un pedido y necesitas anularlo, selecciónalo aquí e indica el motivo.
+        </p>
+        <div id="lista-pedidos-cancelables"></div>
+
+        <form id="form-anulacion-pedido" class="oculto">
+          <label for="motivo-anulacion" class="anulacion__label">
+            Motivo de la anulación (obligatorio)
+          </label>
+          <textarea id="motivo-anulacion" required></textarea>
+          <div class="anulacion__acciones">
+            <button type="submit" class="btn btn--danger btn--small">Confirmar anulación</button>
+            <button type="button" id="btn-cancelar-anulacion" class="btn btn--secondary btn--small">Cancelar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- =====================================================
+       MODAL: BOLETA DIGITAL
+  ====================================================== -->
+  <div id="modal-boleta" class="modal-fondo oculto">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="titulo-boleta">
+      <button type="button" class="modal__cerrar" data-cerrar-modal="modal-boleta" aria-label="Cerrar">✕</button>
+      <h2 id="titulo-boleta">🧾 Boleta digital</h2>
+      <div id="boleta-cuerpo"></div>
+      <button type="button" class="btn btn--primary btn--full boleta__btn-listo" data-cerrar-modal="modal-boleta">
+        Listo
+      </button>
+    </div>
+  </div>
+
+  <!-- ===================== TOAST ===================== -->
+  <div id="toast" class="toast oculto" role="status" aria-live="polite"></div>
+
+  <!-- Acceso directo (oculto en el flujo normal) al panel de administración,
+       útil para la demostración académica del proyecto -->
+  <a href="#/admin" class="acceso-admin">
+    Panel admin →
+  </a>
+
+  <!-- data.js y app-core.js son la base: deben cargarse en este orden.
+       app-main.js (funcionalidades) se agrega en el siguiente PR. -->
+  <script src="data.js"></script>
+  <script src="app-core.js"></script>
+</body>
+</html>
