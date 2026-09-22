@@ -1,14 +1,3 @@
-// =====================================================================
-// app-core.js — Base de la SPA "Poké Fresh" (PR 1: Fundamentos)
-// Requiere que data.js esté cargado ANTES que este archivo en el HTML.
-//
-// Este archivo define lo que el resto de la aplicación necesita para
-// funcionar: el estado global, utilidades, el sistema genérico de
-// modales/toast, el manejo de rutas (#/admin) y la carga inicial desde
-// localStorage. NO implementa funcionalidades de negocio (configurador,
-// menú, carrito, login o panel admin): esas se agregan en app-main.js,
-// que depende de las piezas definidas aquí.
-// =====================================================================
 
 // =====================================================================
 // --- ESTADO GLOBAL (STATE) ---
@@ -243,11 +232,7 @@ function cargarEstadoDesdeStorage() {
 }
 
 function inicializarEventosGlobales() {
-  // Abrir / cerrar modales por atributo data-*.
-  // Las guardas "typeof ... === 'function'" permiten que este archivo
-  // funcione solo (PR 1) y que, cuando exista app-main.js (PR 2), los
-  // modales de carrito/boleta queden con su contenido actualizado al
-  // abrirse, sin que app-core.js necesite conocer esas funciones.
+
   document.querySelectorAll("[data-abrir-modal]").forEach((btn) =>
     btn.addEventListener("click", () => {
       const idModal = btn.dataset.abrirModal;

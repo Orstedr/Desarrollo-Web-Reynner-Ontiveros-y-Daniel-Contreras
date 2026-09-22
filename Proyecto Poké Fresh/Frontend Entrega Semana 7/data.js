@@ -1,17 +1,3 @@
-// =====================================================================
-// data.js
-// --- BASE DE DATOS LOCAL / DATOS SIMULADOS ---
-// -----------------------------------------------------------------------
-// Este archivo es el ÚNICO punto de "datos" del sistema en esta etapa.
-// Todo lo que aquí aparece son valores de EJEMPLO (mock data) pensados
-// para ser reemplazados, en la entrega de backend, por llamadas fetch()
-// a una API real (ej: fetch('/api/productos')) SIN tener que tocar la
-// lógica de renderizado ni de cálculo en app.js.
-//
-// Regla de oro del proyecto: ningún precio se escribe "a mano" dentro
-// de una función de cálculo. Todo cálculo de totales debe LEER el
-// precio desde alguno de los objetos definidos aquí.
-// =====================================================================
 
 // ---------------------------------------------------------------------
 // 1. CONFIGURADOR "ARMA TU BOWL"
@@ -203,8 +189,3 @@ const DB_REPORTE_VENTAS = {
   ticketPromedio: 15168,
 };
 
-// ---------------------------------------------------------------------
-// 6. EXPORT (para mantener el código organizado; en el navegador estos
-//    objetos quedan disponibles como variables globales del script,
-//    dado que el proyecto no usa un bundler ni módulos ES en esta etapa)
-// ---------------------------------------------------------------------
