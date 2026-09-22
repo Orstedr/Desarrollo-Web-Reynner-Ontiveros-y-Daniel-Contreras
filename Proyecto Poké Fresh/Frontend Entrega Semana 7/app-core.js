@@ -1,3 +1,4 @@
+
 // =====================================================================
 // --- ESTADO GLOBAL (STATE) ---
 // =====================================================================
@@ -231,6 +232,7 @@ function cargarEstadoDesdeStorage() {
 }
 
 function inicializarEventosGlobales() {
+
   document.querySelectorAll("[data-abrir-modal]").forEach((btn) =>
     btn.addEventListener("click", () => {
       const idModal = btn.dataset.abrirModal;
