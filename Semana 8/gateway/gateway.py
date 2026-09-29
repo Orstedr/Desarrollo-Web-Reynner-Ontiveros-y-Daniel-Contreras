@@ -8,12 +8,13 @@ from fastapi.security import HTTPAuthorizationCredentials, HTTPBearer
 
 app = FastAPI(
     title="Secure Local API Gateway",
-    description="API Gateway con Bearer Token y secreto compartido hacia el backend"
+    description="API Gateway con Bearer Token y secreto compartido hacia los backends"
 )
 
 security = HTTPBearer(auto_error=False)
 
 BACKEND_URL = os.getenv("BACKEND_URL", "http://localhost:9000")
+BACKEND_URL2 = os.getenv("BACKEND_URL2", "http://localhost:9100")
 
 # Los secretos (client_token y backend_shared_secret) se leen desde Vault
 VAULT_ADDR = os.getenv("VAULT_ADDR", "http://127.0.0.1:8200")
@@ -26,6 +27,8 @@ if not VAULT_TOKEN:
 ROUTES = {
     "products": BACKEND_URL,
     "orders": BACKEND_URL,
+    "productos": BACKEND_URL2,
+    "ordenes": BACKEND_URL2,
 }
 
 
