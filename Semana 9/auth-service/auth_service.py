@@ -40,7 +40,6 @@ USERS = {
     },
 }
 
-
 DUMMY_HASH = "$argon2id$v=19$m=65536,t=3,p=4$cl7ZcJbdjN/ka9gFEBTP9g$fDcjRi0spGIsEL/1FcT8i6cX8um7zidVbLSLYVJeSi4"
 
 SESSIONS: dict[str, dict] = {}
@@ -56,7 +55,6 @@ class IntrospectionRequest(BaseModel):
 
 
 def verify_gateway(x_gateway_auth_secret: str):
-    """403 si quien llama no presenta el secreto del Gateway."""
     valid = secrets.compare_digest(
         x_gateway_auth_secret.encode(),
         AUTH_INTROSPECTION_SECRET.encode(),
